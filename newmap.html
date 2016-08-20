@@ -164,10 +164,9 @@
         }
 
 		function StopMarker (raw) {
-			if (raw.pokemon_id != 0)
+			if (raw.pokemon_id > 0)
 			{
-				//var icon = new StopIcon({iconUrl: '/static/stops/Great_Ball.png'}); //uncomment this and comment below for pokeball icon
-				var icon = new PokemonIcon({iconUrl: '/static/icons/' + raw.pokemon_id + '.png'});
+				var icon = new StopIcon({iconUrl: '/static/stops/Great_Ball.png'});
 			}	
             else
 			{
@@ -185,7 +184,7 @@
                 if (raw.pokemon_id === 0) {
                     event.popup.setContent('No Lure');
                 } else {
-                    event.popup.setContent('Lure Pokemon expires at: <b>' + expires_at + '</b><br>Current Pokemon:<br><b>' + '#' + raw.pokemon_id + ' ' + raw.pokemon_name + '</b>');
+                    event.popup.setContent('Lure expires_at: <b>' + expires_at + '</b><br>Current Pokemon:<br><b>' + '#' + raw.pokemon_id + ' ' + raw.pokemon_name + '</b>');
                 }
             });
             marker.bindPopup();
